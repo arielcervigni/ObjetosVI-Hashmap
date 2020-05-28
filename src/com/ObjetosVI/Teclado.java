@@ -1,5 +1,6 @@
 package com.ObjetosVI;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Teclado {
@@ -9,25 +10,113 @@ public class Teclado {
     public Keyboard(){
         in = new Scanner(System.in);
     }
+
     public int scanInteger(){
-        return in.nextInt();
+        int retorno = 0;
+        int dow = 0;
+        do{
+            try{
+                retorno = in.nextInt();
+                dow = -1;
+            }catch(InputMismatchException ime){
+                in.nextLine();//Limpia el buffer del teclado
+                System.out.println("Try again...");
+            }
+        }while(dow == 0);
+        return retorno;
     }
+
     public String scanString(){
-        return in.nextLine();
+        String retorno = null;
+        int dow = 0;
+        do{
+            try{
+                retorno = in.nextLine();
+                dow = -1;
+            }catch(InputMismatchException ime){
+                in.nextLine();//Limpia el buffer del teclado
+                System.out.println("Try again...");
+            }
+        }while(dow == 0);
+        return retorno;
     }
+
     public boolean scanBoolean(){
-        return in.nextBoolean();
+        boolean retorno = 0;
+        int dow = 0;
+        do{
+            try{
+                retorno = in.nextBoolean();
+                dow = -1;
+            }catch(InputMismatchException ime){
+                in.nextLine();//Limpia el buffer del teclado
+                System.out.println("Try again...");
+            }
+        }while(dow == 0);
+        return retorno;
     }
+
     public char scanCharacter(){
-        return in.next().charAt(0);
+        char retorno = 0;
+        String auxRet = null;
+        int dow = 0;
+        do{
+            try{
+                auxRet = in.next();
+                if(auxRet!=null){
+                    retorno = auxRet.charAt(0);
+                }
+                dow = -1;
+            }catch(InputMismatchException ime){
+                in.nextLine();//Limpia el buffer del teclado
+                System.out.println("Try again...");
+            }
+        }while(dow == 0);
+        return retorno;
     }
+
     public float scanFloat(){
-        return in.nextFloat();
+        float retorno = 0;
+        int dow = 0;
+        do{
+            try{
+                retorno = in.nextFloat();
+                dow = -1;
+            }catch(InputMismatchException ime){
+                in.nextLine();//Limpia el buffer del teclado
+                System.out.println("Try again...");
+            }
+        }while(dow == 0);
+        return retorno;
     }
+
     public double scanDouble(){
-        return in.nextDouble();
+        double retorno = 0;
+        int dow = 0;
+        do{
+            try{
+                retorno = in.nextDouble();
+                dow = -1;
+            }catch(InputMismatchException ime){
+                in.nextLine();//Limpia el buffer del teclado
+                System.out.println("Try again...");
+            }
+        }while(dow == 0);
+        return retorno;
     }
+
     public long scanLong(){
-        return in.nextLong();
+        long retorno = 0;
+        int dow = 0;
+        do{
+            try{
+                retorno = in.nextLonf();
+                dow = -1;
+            }catch(InputMismatchException ime){
+                in.nextLine();//Limpia el buffer del teclado
+                System.out.println("Try again...");
+            }
+        }while(dow == 0);
+        return retorno;
     }
 }
